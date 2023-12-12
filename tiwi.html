@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fitria Ambar Pratiwi</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="team" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+<link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/vegas.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/templatemo-style.css" />
+    <style>
+        /* CSS untuk mengatur halaman agar tidak dapat di-scroll */
+
+
+        /* CSS untuk grid line */
+        .grid-line {
+            height: 100%; /* Menyesuaikan tinggi grid line dengan tinggi layar */
+        }
+
+        /* CSS untuk countdown */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* Menyesuaikan tinggi countdown container dengan tinggi layar */
+            overflow: hidden;
+        }
+                /* CSS untuk menu */
+        .menu-bg, .menu-burger {
+            position: fixed;
+            z-index: 9999;
+        }
+
+        .menu-items {
+            height: 100%;
+            overflow: auto; /* Menambahkan overflow: auto agar konten menu dapat di-scroll */
+        }
+
+        /* CSS tambahan seperti sebelumnya */
+    </style>
+  </head>
+
+  <body>
+    <!-- PRE LOADER -->
+    <section class="preloader">
+      <div class="spinner">
+        <span class="spinner-rotate"></span>
+      </div>
+    </section>
+
+    <div class="menu-bg"></div>
+    <div class="menu-burger">☰</div>
+
+    <div class="menu-items">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-2 col-md-4 col-sm-6">
+            <h1>Navigations</h1>
+            <ul class="menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Fitria Ambar Pratiwi</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <ul class="social-icon">
+              <li class="line"></li>
+              <li>
+                <a href="https://wa.me/6281230147253" class="fa fa-whatsapp"></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/ambarprtwx" class="fa fa-instagram"></a>
+              </li><li>
+                <a href="https://www.instagram.com/rizeee.u/" class="fa fa-instagram"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="home-info">
+              <h1>刘佳奇，在这个特别的日子里，我想对你说一声生日快乐！愿你在新的一岁中收获满满的快乐 &#127881; &#127881;<br>健康和成功。你是我生命中最美好的礼物，每一天都因为有你而变得更加美好<br> 。希望你的生日充满欢笑、温馨和甜蜜，愿我们的未来充满更多美好的时刻。我爱你，生日快乐！ 🎉🎂💖 <br>&#10084; </h1>
+              <!-- You can change the date time in init.js file -->
+
+              <ul class="countdown">
+                <div class="countdown-container">
+                  <li>
+                    <span class="days" id="days">00</span>
+                    <div class="countdown-label">Hari</div>
+                  </li>
+                  <li>
+                    <span class="hours" id="hours">00</span>
+                    <div class="countdown-label">Jam</div>
+                  </li>
+                  <li>
+                    <span class="minutes" id="minutes">00</span>
+                    <div class="countdown-label">Menit</div>
+                  </li>
+                  <li>
+                    <span class="seconds" id="seconds">00</span>
+                    <div class="countdown-label">Detik</div>
+                  </li>
+                </div>
+              </ul>
+
+              <div class="subscribe-form">
+  <form id="myForm" method="POST">
+    <textarea id="pesan" name="message" class="form-control"></textarea>
+    <button type="submit" class="fa fa-envelope-o">
+      <!-- <i class="fa fa-envelope-o"></i> -->
+    </button>
+  </form>
+<br>
+<br>
+</div>
+  <center><a href="https://open.spotify.com/playlist/5FLY58UJOzdfOO3vDA8cjG?si=2hM3cPmBTeSxXZjLtWooig&nd=1"><img src="spotify.png" width="80%"></a></center>
+
+<script>
+  // Fungsi untuk mengirim pesan WhatsApp
+  function kirimPesan() {
+    var nomorWhatsApp = "81230147253"; // Ganti dengan nomor WhatsApp Anda
+    var pesan = document.getElementById("pesan").value;
+    var url = "https://wa.me/62" + nomorWhatsApp + "?text=" + encodeURIComponent(pesan);
+    window.open(url, "_blank");
+  }
+
+  // Menangani pengiriman form
+  document.getElementById("myForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Mencegah form dikirimkan secara langsung
+    kirimPesan(); // Memanggil fungsi untuk mengirim pesan WhatsApp
+  });
+
+</script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SCRIPTS -->
+       <script>
+        // JavaScript untuk mengontrol scrolling saat menu dibuka/tutup
+        const menuBurger = document.querySelector(".menu-burger");
+        const menuItems = document.querySelector(".menu-items");
+
+        menuBurger.addEventListener("click", function() {
+            menuItems.classList.toggle("open");
+            if (menuItems.classList.contains("open")) {
+                // Matikan scrolling saat menu dibuka
+                document.body.style.overflow = "hidden";
+            } else {
+                // Aktifkan scrolling saat menu ditutup
+                document.body.style.overflow = "auto";
+            }
+        });
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vegas.min.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+      // Fungsi untuk menghitung countdown
+      function updateCountdown() {
+        var targetDate = new Date("2023-12-13 22:00:00").getTime();
+        var now = new Date().getTime();
+
+        var timeRemaining = targetDate - now;
+
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor(
+          (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        // Mengatur dua digit angka pada countdown
+        days = days.toString().padStart(2, "0");
+        hours = hours.toString().padStart(2, "0");
+        minutes = minutes.toString().padStart(2, "0");
+        seconds = seconds.toString().padStart(2, "0");
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+      }
+
+      // Panggil fungsi updateCountdown setiap detik
+      setInterval(updateCountdown, 1000);
+
+      // Jalankan fungsi updateCountdown untuk pertama kali saat halaman dimuat
+      updateCountdown();
+    </script>
+  </body>
+</html>
