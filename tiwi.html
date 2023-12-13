@@ -48,6 +48,80 @@
         }
 
         /* CSS tambahan seperti sebelumnya */
+         button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #5b6469;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 80%;
+            max-height: 70vh;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        #close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        p {
+          text-align: justify;
+    margin: 0; 
+    padding: 0 10px; 
+            color: #555;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+        center{
+          font-size: 20px;
+          color: #555;
+            line-height: 1.6;
+        }
+        .w2 {
+          text-align: justify;
+    margin: 0; 
+    padding: 0 10px; 
+            color: #555;
+            line-height: 1.6;
+            font-size: 18px;
+        }
     </style>
   </head>
 
@@ -100,7 +174,7 @@
               <h1>刘佳奇，在这个特别的日子里，我想对你说一声生日快乐！愿你在新的一岁中收获满满的快乐 &#127881; &#127881;<br>健康和成功。你是我生命中最美好的礼物，每一天都因为有你而变得更加美好<br> 。希望你的生日充满欢笑、温馨和甜蜜，愿我们的未来充满更多美好的时刻。我爱你，生日快乐！ 🎉🎂💖 <br>&#10084; </h1>
               <!-- You can change the date time in init.js file -->
 
-              <ul class="countdown">
+              <!-- <ul class="countdown">
                 <div class="countdown-container">
                   <li>
                     <span class="days" id="days">00</span>
@@ -119,7 +193,10 @@
                     <div class="countdown-label">Detik</div>
                   </li>
                 </div>
-              </ul>
+              </ul> -->
+
+
+              
 
               <div class="subscribe-form">
   <form id="myForm" method="POST">
@@ -132,7 +209,36 @@
 <br>
 </div>
   <center><a href="https://open.spotify.com/playlist/5FLY58UJOzdfOO3vDA8cjG?si=2hM3cPmBTeSxXZjLtWooig&nd=1"><img src="spotify.png" width="80%"></a></center>
+<br>
+<br>
+  <button onclick="togglePopup()">Click Me!</button>
 
+    <div id="overlay"></div>
+    
+    <div id="popup-container">
+        <span id="close-btn" onclick="togglePopup()">×</span>
+        <h2>Your Pop-Up Message</h2>
+        <p>today, December 13 2023 is your birthday, I prepared this website a long time ago but I want to show it to you on your birthday, I don't know what to do, this website should be a complement to when I confess my feelings to you, I should have confessed my feelings to you now (but I don't know what I did today, whether I did it or not, because maybe in the future it will be different) I would call myself very great if I managed to express my feelings to you today, no matter what the result is, the important thing is I tried, but if I didn't, I would probably be very disappointed when I read this.
+I really like being with you, chatting about everything with you, I always want to do that every day, I hope you don't think I'm annoying, I want to be with you every day,
+Maybe it's very strange but that's what I'm going to say on your birthday.
+
+<center>HAPPY BIRTHDAY.</center> </p>
+<br>
+<p class="w2">今天，2023年12月13日是你的生日，这个网站我早就准备好了，但我想在你生日的时候给你看，我不知道该怎么办，这个网站应该是我表白感情时的一个补充对你来说，我现在应该向你坦白我的感受（但我不知道我今天做了什么，无论我做了还是没做，因为也许将来会有所不同）如果我能做到的话，我会称自己非常伟大今天向大家表达我的感受，无论结果如何，重要的是我尝试过，但如果我没有尝试，当我读到这篇文章时，我可能会非常失望。
+我真的很喜欢和你在一起，和你聊一切，我每天都想这么做，希望你不要觉得我烦，我想每天和你在一起，
+也许这很奇怪，但这就是我要在你生日那天说的话。
+<center>生日快乐。</center></p>
+
+    </div>
+
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById("popup-container");
+            var overlay = document.getElementById("overlay");
+            popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
+            overlay.style.display = (overlay.style.display === "none" || overlay.style.display === "") ? "block" : "none";
+        }
+    </script>
 <script>
   // Fungsi untuk mengirim pesan WhatsApp
   function kirimPesan() {
@@ -178,7 +284,7 @@
     <script src="js/countdown.js"></script>
     <script src="js/init.js"></script>
     <script src="js/custom.js"></script>
-    <script>
+    <!-- <script>
       // Fungsi untuk menghitung countdown
       function updateCountdown() {
         var targetDate = new Date("2023-12-13 22:00:00").getTime();
@@ -212,6 +318,6 @@
 
       // Jalankan fungsi updateCountdown untuk pertama kali saat halaman dimuat
       updateCountdown();
-    </script>
+    </script> -->
   </body>
 </html>
