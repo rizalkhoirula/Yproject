@@ -6,30 +6,37 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            position: relative;
+            min-height: 100vh;
             margin: 0;
             background-color: #f4f4f4;
         }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #3498db;
-            color: #ffffff;
+        .faq-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        #popup-container {
+        .faq-button:hover {
+            background-color: #3498db; /* Change background color on hover if needed */
+        }
+
+        .faq-popup {
             display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            bottom: 20px;
+            right: 20px;
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -37,7 +44,7 @@
             z-index: 1000;
             border-radius: 8px;
             max-width: 400px;
-            width: 100%;
+            width: 80%;
             text-align: center;
         }
 
@@ -73,22 +80,25 @@
 </head>
 <body>
 
-    <button onclick="togglePopup()">Show Popup</button>
+    <button class="faq-button" onclick="togglePopup()">❓</button>
 
-    <div id="overlay"></div>
+    <div id="overlay" onclick="togglePopup()"></div>
     
-    <div id="popup-container">
-        <span id="close-btn" onclick="togglePopup()">×</span>
-        <h2>Your Pop-Up Message</h2>
-        <p>This is a more visually appealing pop-up box message. You can customize it further to suit your needs.</p>
+    <div class="faq-popup" id="faq-popup">
+        <span id="close-btn" onclick="togglePopup()">❌</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Q: What is this FAQ about?</p>
+        <p>A: This is a simple FAQ-style pop-up example with a question mark emoji.</p>
+        <!-- Add more questions and answers as needed -->
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         function togglePopup() {
-            var popup = document.getElementById("popup-container");
-            var overlay = document.getElementById("overlay");
-            popup.style.display = (popup.style.display === "none" || popup.style.display === "") ? "block" : "none";
-            overlay.style.display = (overlay.style.display === "none" || overlay.style.display === "") ? "block" : "none";
+            var popup = $("#faq-popup");
+            var overlay = $("#overlay");
+            popup.fadeToggle();
+            overlay.fadeToggle();
         }
     </script>
 
